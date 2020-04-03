@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        let rpsarr = ["Rock!", "Paper!", "Scissors!"];
+        let rpsarr = ['rock', 'paper', 'scissors'];
+        let playerSelection = 'paper';
+        let compSelection = computerPlay();
 
         function computerPlay() {
             let compChoice = rpsarr[Math.floor(Math.random() * rpsarr.length)];
-            console.log(compChoice);
-        }
-
-        computerPlay();
+            return compChoice;
+        };
 
         function playRound(playerSelection, compSelection) {
-            let 
+            if (playerSelection == 'rock' && compSelection == 'rock' || playerSelection == 'paper' && compSelection == 'paper' || playerSelection == 'scissors' && compSelection == 'scissors') {
+                return 'Draw!';
+            } else if (playerSelection == 'rock' && compSelection == 'scissors' || playerSelection == 'paper' && compSelection == 'rock' || playerSelection == 'scissors' && compSelection == 'paper') {
+                return 'You win!';
+            } else if (playerSelection == 'rock' && compSelection == 'paper' || playerSelection == 'paper' && compSelection == 'scissors' || playerSelection == 'scissors' && compSelection == 'rock') {
+                return 'You lose!';
+            }
         }
+
+        console.log(playerSelection);
+        console.log(compSelection);
+        console.log(playRound(playerSelection, compSelection));
+
     </script>
 </body>
+
 </html>
